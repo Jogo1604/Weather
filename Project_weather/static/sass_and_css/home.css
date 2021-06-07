@@ -1,0 +1,16 @@
+body nav {
+    background: rgb(231, 231, 188) !important;
+    border-radius: 0 !important;
+  }
+
+.navbartxt {
+  color: black!important;
+  text-decoration: none !important;
+  font-family: "Lucida Console" , monospace;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  font-size: large;
+}
+
+
