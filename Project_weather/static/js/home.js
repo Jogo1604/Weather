@@ -16,6 +16,18 @@ function showPosition(position) {
       
               response.json().then( (data) => {
               console.log(data);
+              let today_icon = document.getElementById('weather_icon');
+              today_icon.innerHTML = data.weather.icon;
+              let today_temp = document.getElementById('today_temp');
+              today_temp.innerHTML = (data.main.temp - 273.15).toFixed(0) + "°";
+              let today_humidity = document.getElementById('today_humidity');
+              today_humidity.innerHTML = data.main.humidity;
+              let today_rain = document.getElementById('today_rain');
+              today_rain.innerHTML = data.rain;
+              let today_wspeed = document.getElementById('today_wspeed');
+              today_wspeed.innerHTML = data.wind.speed + "meter/sec";
+              let today_clouds = document.getElementById('today_clouds');
+              today_clouds.innerHTML = data.clouds.all+ "%";
               })
           })       
             .catch((err) => {
