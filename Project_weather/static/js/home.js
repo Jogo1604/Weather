@@ -21,7 +21,11 @@ function showPosition(position) {
               document.getElementById('today_icon').src = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
               document.getElementById('today_temp').innerHTML = (data.main.temp - 273.15).toFixed(0) + "°";
               document.getElementById('today_humidity').innerHTML = data.main.humidity+ "%";
-              document.getElementById('today_rain').innerHTML = data.rain;
+              if(data.rain){
+                document.getElementById('today_rain').innerHTML = data.rain[0] + " l/m²";
+              } else {
+                document.getElementById('today_rain').innerHTML = "0%";
+              }
               document.getElementById('today_wspeed').innerHTML = data.wind.speed + "meter/sec";
               document.getElementById('today_clouds').innerHTML = data.clouds.all+ "%";
               })
@@ -45,7 +49,11 @@ function showPosition(position) {
               document.getElementById('3days_icon'+i).src = `http://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}.png`;
               document.getElementById('3days_temp'+i).innerHTML =(data.daily[i].temp.day - 273.15).toFixed(0) + "°";
               document.getElementById('3days_humidity'+i).innerHTML = data.daily[i].humidity+ "%";
-              document.getElementById('3days_rain'+i).innerHTML = data.daily[i].rain;
+              if(data.daily[i].rain){
+                document.getElementById('3days_rain'+i).innerHTML = data.daily[i].rain + " l/m²";
+              } else {
+                document.getElementById('3days_rain'+i).innerHTML = "0%";
+              }
               document.getElementById('3days_windSpeed'+i).innerHTML = data.daily[i].wind_speed + "meter/sec";
               document.getElementById('3days_clouds'+i).innerHTML = data.daily[i].clouds+ "%";
              }
@@ -54,7 +62,11 @@ function showPosition(position) {
               document.getElementById('7days_icon'+i).src = `http://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}.png`;
               document.getElementById('7days_temp'+i).innerHTML =(data.daily[i].temp.day - 273.15).toFixed(0) + "°";
               document.getElementById('7days_humidity'+i).innerHTML = data.daily[i].humidity+ "%";
-              document.getElementById('7days_rain'+i).innerHTML = data.daily[i].rain;
+              if(data.daily[i].rain){
+                document.getElementById('7days_rain'+i).innerHTML = data.daily[i].rain + " l/m²";
+              } else {
+                document.getElementById('7days_rain'+i).innerHTML = "0%";
+              }
               document.getElementById('7days_wSpeed'+i).innerHTML = data.daily[i].wind_speed + "meter/sec";
               document.getElementById('7days_clouds'+i).innerHTML = data.daily[i].clouds+ "%";
              }
