@@ -4,6 +4,10 @@ let lon;
 
 window.onload = navigator.geolocation.getCurrentPosition(showPosition);
 
+const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+let d = new Date();
+let n = d.getDay()
+
 function showPosition(position) {
     console.log(position.coords);
     lat = position.coords.latitude;
@@ -18,6 +22,7 @@ function showPosition(position) {
       
               response.json().then( (data) => {
               console.log(data);
+              document.getElementById('today_day').innerHTML = days[n];
               document.getElementById('today_icon').src = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
               document.getElementById('today_temp').innerHTML = (data.main.temp - 273.15).toFixed(0) + "°";
               document.getElementById('today_humidity').innerHTML = data.main.humidity+ "%";
@@ -46,6 +51,8 @@ function showPosition(position) {
           console.log(data);
              for(let i=0 ;i < 3 ;i++)
              {
+              if(n+i<7){document.getElementById('3days_day'+i).innerHTML = days[n+i];
+              }else document.getElementById('3days_day'+i).innerHTML = days[n-7+i];             
               document.getElementById('3days_icon'+i).src = `http://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}.png`;
               document.getElementById('3days_temp'+i).innerHTML =(data.daily[i].temp.day - 273.15).toFixed(0) + "°";
               document.getElementById('3days_humidity'+i).innerHTML = data.daily[i].humidity+ "%";
@@ -59,6 +66,8 @@ function showPosition(position) {
              }
              for(let i=0 ;i < 7 ;i++)
              {
+              if(n+i<7){document.getElementById('7days_day'+i).innerHTML = days[n+i];
+              }else document.getElementById('7days_day'+i).innerHTML = days[n-7+i];
               document.getElementById('7days_icon'+i).src = `http://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}.png`;
               document.getElementById('7days_temp'+i).innerHTML =(data.daily[i].temp.day - 273.15).toFixed(0) + "°";
               document.getElementById('7days_humidity'+i).innerHTML = data.daily[i].humidity+ "%";
