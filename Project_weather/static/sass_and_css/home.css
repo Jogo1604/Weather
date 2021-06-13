@@ -14,5 +14,22 @@ body nav {
 }
 
 body{
-  background: rgba(147, 181, 255, 0.877) !important;
+  background: rgba(177, 201, 252, 0.87) !important;
+}
+
+.accordion-body{
+  text-align: center;
+  background: rgba(177, 201, 252, 0.87) !important;
+}
+
+#acordion-text{
+  font-size: large;
+}
+
+body div div div p {
+  font-size: large;
+}
+
+body div div div b {
+  font-size: large;
 }
